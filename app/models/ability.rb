@@ -15,6 +15,8 @@ class Ability
       can :read, Skill
       can :read, Activety
       can :read, Project
+      can :read, Job
+      can :read, Education
     end
 
   end

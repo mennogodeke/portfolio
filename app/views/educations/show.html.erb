@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @education.name %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @education.school %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @education.location %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @education.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @education.end_date %>
+</p>
+
+<p>
+  <strong>Diploma:</strong>
+  <%= @education.diploma %>
+</p>
+<% if can? :manage, :all %>
+  <%= link_to 'Edit', edit_education_path(@education) %>
+<% end  %>
+<%= link_to 'Back', educations_path %>
