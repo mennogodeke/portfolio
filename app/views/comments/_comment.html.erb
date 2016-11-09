@@ -1,5 +1,5 @@
 <p>
-  <strong>Comment:</strong>
+  <strong><%= comment.user.email %></strong>
   <%= comment.body %>
 </p>
 <% if can? :manage, :all %>
