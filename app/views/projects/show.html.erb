@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @project.link %>
+</p>
+<% if can? :manage, :all %>
+  <%= link_to 'Edit', edit_project_path(@project) %>
+<% end %>
+<%= link_to 'Back', projects_path %>
