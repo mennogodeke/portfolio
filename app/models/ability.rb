@@ -12,6 +12,8 @@ class Ability
       can :create, Comment
       can :read, Comment
       can :read, Article
+      can :read, Skill
+      can :read, Activety
     end
 
   end

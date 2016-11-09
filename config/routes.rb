@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :skills do
+    resources :activeties
+  end
   get 'welcome/index'
 
   root 'welcome#index'

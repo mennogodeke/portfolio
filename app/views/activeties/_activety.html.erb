@@ -1,0 +1,10 @@
+<p>
+  <strong>
+    <%= activety.name %>
+  </strong>
+</p>
+<% if can? :manage, :all %>
+  <%= link_to 'Destroy Activity', [activety.skill, activety],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+<% end %>
