@@ -7,4 +7,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  devise_for :users, controllers: {
+      sessions: 'users/sessions',
+      passwords: 'users/passwords',
+      registrations: 'users/registrations'
+  }
+
 end
