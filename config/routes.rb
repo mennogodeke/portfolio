@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :activeties
   end
   get 'welcome/index'
-
   root 'welcome#index'
+
+  get '/cv' => 'cv#index', :as => 'cv'
 
   resources :articles do
     resources :comments

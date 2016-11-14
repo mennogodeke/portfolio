@@ -7,28 +7,43 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if user_signed_in? %>
-
-      <%= link_to('Edit registration', edit_user_registration_path) %>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-
-  <% else %>
-
-      <%= link_to('Register', new_user_registration_path)  %>
-      <%= link_to('Login', new_user_session_path)  %>
-
-  <% end %>
-
-  <%= link_to 'My Blog', controller: '/articles' %>
-  <%= link_to 'Home', controller: '/welcome' %>
-  <%= link_to 'Skills', controller: '/skills' %>
-  <%= link_to 'Projects', controller: '/projects' %>
-  <%= link_to 'Jobs', controller: '/jobs' %>
-  <%= link_to 'Educations', controller: '/educations' %>
-  <%= yield %>
+  <body class="container">
+    <div class="row">
+      <div class="col-md-12">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <% if user_signed_in? %>
+              <%= link_to('Edit registration', edit_user_registration_path) %>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+              <%= link_to('Register', new_user_registration_path)  %>
+              <%= link_to('Login', new_user_session_path)  %>
+          <% end %>
+        </div>
+      </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <nav id="left_nav_bar" role="navigation">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><%= link_to 'Home', controller: '/welcome' %></li>
+            <li role="presentation"><%= link_to 'Work', controller: '/projects' %></li>
+            <li role="presentation"><%= link_to 'Skills', controller: '/skills' %></li>
+            <li role="presentation"><%= link_to 'Articles', controller: '/articles' %></li>
+            <li role="presentation"> <%= link_to 'Curriculum Vitae', controller: '/cv' %></li>
+            <% if can? :manage, :all %>
+                <li role="presentation"><%= link_to 'Educations', controller: '/educations' %></li>
+                <li role="presentation"><%= link_to 'Jobs', controller: '/jobs' %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-8">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

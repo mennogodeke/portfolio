@@ -1,0 +1,43 @@
+<h1>Curriculum Vitae</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Company</th>
+    <th>Position</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.company %></td>
+        <td><%= job.position %></td>
+        <td><%= job.start_date %></td>
+        <td><%= job.end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Education</th>
+      <th>School</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @edus.each do  |edu| %>
+      <tr>
+        <td><%= edu.name %></td>
+        <td><%= edu.school %></td>
+        <td><%= edu.start_date %></td>
+        <td><%= edu.end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
