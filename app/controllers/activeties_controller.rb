@@ -1,6 +1,4 @@
 class ActivetiesController < ApplicationController
-  load_and_authorize_resource
-  skip_before_action :authenticate_user!, :only => [:index, :show]
   def create
     @skill = Skill.find(params[:skill_id])
     @activity = @skill.activeties.create(activity_params)
