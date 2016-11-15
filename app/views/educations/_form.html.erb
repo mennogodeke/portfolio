@@ -28,17 +28,22 @@
 
   <div class="field">
     <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date, {:include_blank => true, :default => nil} %>
   </div>
 
   <div class="field">
     <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
+    <%= f.date_select :end_date, {:include_blank => true, :default => nil} %>
   </div>
 
   <div class="field">
     <%= f.label :diploma %>
     <%= f.check_box :diploma %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current %>
+    <%= f.check_box :current %>
   </div>
 
   <div class="actions">

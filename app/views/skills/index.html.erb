@@ -1,32 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="heading">
+  <div class="page-title col-md-12">
+    <span class="title">Skills</span>
+  </div>
+</div>
 
-<h1>Skills</h1>
+<% @skills.each do |skill|  %>
+  <div class="skill">
+    <div class="title-block col-md-12">
+      <span class="skill-title"><%= skill.title %></span>
+    </div>
+    <div class="skill-block col-md-10">
+      <div class="skill-desc col-md-6">
+        <p>
+          <%= skill.description %>
+        </p>
+      </div>
+      <% skill.activeties.each do |act| %>
+        <div class="col-md-6">
+        <ul class="activity-list">
+          <li><span class="activity"><%= act.name %></span></li>
+        </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @skills.each do |skill| %>
-      <tr>
-        <td><%= skill.title %></td>
-        <td><%= skill.description %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <% if can? :manage, :all %>
-          <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-          <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end  %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <% if can? :manage, :all %>
   <%= link_to 'New Skill', new_skill_path %>
 <% end %>

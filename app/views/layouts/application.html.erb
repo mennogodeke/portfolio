@@ -7,43 +7,31 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="container">
-    <div class="row">
+  <div class="row">
+    <nav class="navigation container">
       <div class="col-md-12">
-      <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <% if user_signed_in? %>
-              <%= link_to('Edit registration', edit_user_registration_path) %>
-              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-          <% else %>
-              <%= link_to('Register', new_user_registration_path)  %>
-              <%= link_to('Login', new_user_session_path)  %>
-          <% end %>
-        </div>
-      </nav>
+      <ul class="navigation-bar">
+        <li class="navigation-item <%= 'cp' if params[:controller] == 'welcome' %>"><%= link_to 'HOME', root_path %></li>
+        <li class="navigation-item <%= 'cp' if params[:controller] == 'skills' %>"><%= link_to 'SKILLS', skills_path %></li>
+        <li class="navigation-item <%= 'cp' if params[:controller] == 'projects' %>"><%= link_to 'WORK', projects_path %></li>
+        <li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path, class: cp('articles') %></li>
+        <li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path, class: cp('cv') %></li>
+        <li class="navigation-item"><%= link_to 'CONTACT', '#'%></li>
+      </ul>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <nav id="left_nav_bar" role="navigation">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><%= link_to 'Home', controller: '/welcome' %></li>
-            <li role="presentation"><%= link_to 'Work', controller: '/projects' %></li>
-            <li role="presentation"><%= link_to 'Skills', controller: '/skills' %></li>
-            <li role="presentation"><%= link_to 'Articles', controller: '/articles' %></li>
-            <li role="presentation"> <%= link_to 'Curriculum Vitae', controller: '/cv' %></li>
-            <% if can? :manage, :all %>
-                <li role="presentation"><%= link_to 'Educations', controller: '/educations' %></li>
-                <li role="presentation"><%= link_to 'Jobs', controller: '/jobs' %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-      <div class="col-md-8">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-      </div>
-    </div>
-  </body>
+    </nav>
+  </div>
+
+
+  <div class="row">
+    <header class="container-fluid">
+        <%= image_tag("header.jpg") %>
+    </header>
+  </div>
+
+  <div class="row">
+  <div id="content" class="container">
+    <%= yield %>
+  </div>
+  </div>
 </html>

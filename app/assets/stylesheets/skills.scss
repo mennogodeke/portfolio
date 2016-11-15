@@ -1,3 +1,28 @@
 // Place all the styles related to the Skills controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.skill {
+  margin-top: 5px;
+}
+
+
+.skill-title {
+  background-color: black;
+  padding: 5px 40px 5px 5px;
+  font-family: Cubano;
+  font-size: 2em;
+  color: white;
+  margin-top: 10px;
+  box-shadow: 3px 2px 4px #707070;
+  position:absolute;
+  z-index: 10;
+}
+
+.skill-block {
+  background-color: #F3F3F3;
+  margin-top: 4%;
+  padding-top: 40px;
+  margin-left: 10%;
+  z-index: 5;
+}
