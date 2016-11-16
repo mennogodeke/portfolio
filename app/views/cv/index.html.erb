@@ -1,5 +1,58 @@
-<div class="heading">
-  <div class="page-title col-md-12">
-    <span class="title">curriculum vitae</span>
-  </div>
-</div>
+<span class="col-md-6"><h1>curriculum vitae</h1></span>
+
+
+    <div class="content-item">
+      <div class="title-block col-md-12">
+        <span class="col-md-4"><h2>Educations</h2></span>
+      </div>
+      <div class="skill-block col-md-10">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Education</th>
+            <th>School</th>
+            <th>Started</th>
+            <th>Finished</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @edus.each do |edu|  %>
+            <tr>
+              <td><%= edu.name %></td>
+              <td><%= edu.school %></td>
+              <td><%= edu.start_date %></td>
+              <td><%= edu.end_date %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="content-item">
+      <div class="title-block col-md-12">
+        <span class="col-md-3"><h2>jobs</h2></span>
+      </div>
+      <div class="skill-block col-md-10">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Start</th>
+            <th>End</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @jobs.each do |job|  %>
+              <tr>
+                <td><%= job.company %></td>
+                <td><%= job.position %></td>
+                <td><%= job.start_date %></td>
+                <td><%= job.end_date %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>

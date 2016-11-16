@@ -1,7 +1,8 @@
 <p>
-  <strong><%= comment.user.email %></strong>
-  <%= comment.body %>
+  <%= comment.user.email %>
+  : <%= comment.body %>
 </p>
+
 <% if can? :manage, :all %>
   <p>
     <%= link_to 'Destroy Comment', [comment.article, comment],

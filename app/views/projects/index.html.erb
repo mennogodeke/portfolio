@@ -1,8 +1,38 @@
-<div class="heading">
-  <div class="page-title col-md-12">
-    <span class="title">work</span>
-  </div>
-</div>
+<span class="col-md-3"><h1>work</h1></span>
+
+<% @projects.each do |project|  %>
+    <div class="content-item">
+
+      <div class="title-block col-md-12">
+        <span class="col-md-8"><h2><%= project.title %></span></h2>
+      </div>
+
+      <div class="skill-block col-md-10">
+        <div class="skill-desc col-md-6">
+          <p>
+            <%= project.description.truncate_words(50) %><br>
+          <span class="col-md-4">
+            <div class="item-link">
+              <%= link_to 'read more', project %>
+              <%= link_to 'see on github', project.link, :target => "_blank" %>
+            </div>
+          </span>
+          </p>
+
+        </div>
+
+        <div class="col-md-6">
+            <div id="project-image">
+              <%= image_tag('project') %>
+            </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+<% end %>
 
 <% if can? :manage, :all %>
   <%= link_to 'New Project', new_project_path %>

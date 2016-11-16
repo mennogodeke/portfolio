@@ -1,13 +1,9 @@
-<div class="heading">
-  <div class="page-title col-md-12">
-    <span class="title">Skills</span>
-  </div>
-</div>
+<span class="col-md-3"><h1>skills</h1></span>
 
 <% @skills.each do |skill|  %>
-  <div class="skill">
+  <div class="content-item">
     <div class="title-block col-md-12">
-      <span class="skill-title"><%= skill.title %></span>
+      <span class="col-md-8"><h2><%= skill.title %></h2></span>
     </div>
     <div class="skill-block col-md-10">
       <div class="skill-desc col-md-6">

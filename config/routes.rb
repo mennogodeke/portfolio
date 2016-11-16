@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  get '/contact' => 'contact#index', :as => 'contact'
+  get 'welcome/index'
+  get '/cv' => 'cv#index', :as => 'cv'
+
   resources :educations
   resources :jobs
   resources :projects
@@ -10,13 +15,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-
-  get 'welcome/index'
-  root 'welcome#index'
-
-  get '/cv' => 'cv#index', :as => 'cv'
-
-
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',

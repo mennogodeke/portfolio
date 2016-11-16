@@ -1,20 +1,19 @@
-<p id="notice"><%= notice %></p>
+<span class="col-md-6"><h1><%= @project.title %></h1></span>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="content-item">
+  <div class="title-block col-md-12">
+    <span class="col-md-8"><h2>Description</h2></span>
+  </div>
+  <div class="skill-block col-md-10">
+    <p>
+      <%= @project.description %><br>
+    <div class="item-link">
+      <%= link_to 'Back', projects_path %>
+    </div>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @project.link %>
-</p>
 <% if can? :manage, :all %>
   <%= link_to 'Edit', edit_project_path(@project) %>
 <% end %>
-<%= link_to 'Back', projects_path %>

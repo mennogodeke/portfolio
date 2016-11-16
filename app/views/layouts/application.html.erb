@@ -15,14 +15,25 @@
           <li class="navigation-item <%= 'cp' if params[:controller] == 'welcome' %>"><%= link_to 'HOME', root_path %></li>
           <li class="navigation-item <%= 'cp' if params[:controller] == 'skills' %>"><%= link_to 'SKILLS', skills_path %></li>
           <li class="navigation-item <%= 'cp' if params[:controller] == 'projects' %>"><%= link_to 'WORK', projects_path %></li>
-          <li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path, class: cp('articles') %></li>
-          <li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path, class: cp('cv') %></li>
-          <li class="navigation-item"><%= link_to 'CONTACT', '#'%></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'contact' %>"><%= link_to 'CONTACT', contact_path %></li>
+          <li class="social">
+            <ul class="social-links">
+              <% if user_signed_in? %>
+                <li class="social-icon"><%= link_to image_tag('logouticon', size: "26x26"), destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure you want to log out?"} %></li>
+                <li class="social-icon"><%= link_to image_tag('usericon', size: "26x26"), edit_user_registration_path %></li>
+              <% else %>
+                <li class="social-icon"><%= link_to image_tag('usericon', size: "26x26"), new_user_session_path %></li>
+              <% end %>
+              <li class="social-icon"><%= link_to image_tag('linkedinlogo', size: "26x26"), 'https://www.linkedin.com/in/menno-godeke-b5b09b10a', :target => "_blank" %></li>
+              <li class="social-icon"><%= link_to image_tag('githubicon', size: "26x26"), 'https://github.com/mennogodeke', :target => "_blank" %></li>
+            </ul>
+          </li>
         </ul>
         </div>
       </nav>
     </div>
-
 
     <div class="row">
       <header class="container-fluid">

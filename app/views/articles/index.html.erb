@@ -1,8 +1,34 @@
-<div class="heading">
-  <div class="page-title col-md-12">
-    <span class="title">articles</span>
-  </div>
-</div>
+
+<span class="col-md-3"><h1>articles</h1></span>
+
+
+<% @articles.each do |article|  %>
+    <div class="content-item">
+      <div class="title-block col-md-12">
+        <span class="col-md-8"><h2><%= article.title %></h2></span>
+      </div>
+
+      <div class="skill-block col-md-10">
+        <div class="skill-desc col-md-6">
+          <p>
+            <%= article.text.truncate_words(25) %><br>
+            <span class="col-md-4">
+              <div class="item-link"><%= link_to 'read more', article%></div>
+            </span>
+          </p>
+          <p>
+          </p>
+        </div>
+          <div class="col-md-3">
+            <ul class="activity-list">
+              <li><h3><%= l article.created_at, :format => :simple %></h3></li>
+            </ul>
+          </div>
+      </div>
+
+    </div>
+<% end %>
+
 
 <% if can? :manage, :all %>
   <%= link_to 'New article', new_article_path %>
