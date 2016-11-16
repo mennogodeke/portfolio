@@ -7,31 +7,33 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <div class="row">
-    <nav class="navigation container">
-      <div class="col-md-12">
-      <ul class="navigation-bar">
-        <li class="navigation-item <%= 'cp' if params[:controller] == 'welcome' %>"><%= link_to 'HOME', root_path %></li>
-        <li class="navigation-item <%= 'cp' if params[:controller] == 'skills' %>"><%= link_to 'SKILLS', skills_path %></li>
-        <li class="navigation-item <%= 'cp' if params[:controller] == 'projects' %>"><%= link_to 'WORK', projects_path %></li>
-        <li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path, class: cp('articles') %></li>
-        <li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path, class: cp('cv') %></li>
-        <li class="navigation-item"><%= link_to 'CONTACT', '#'%></li>
-      </ul>
-      </div>
-    </nav>
-  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="navigation container">
+        <div class="col-md-12">
+        <ul class="navigation-bar">
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'welcome' %>"><%= link_to 'HOME', root_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'skills' %>"><%= link_to 'SKILLS', skills_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'projects' %>"><%= link_to 'WORK', projects_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path, class: cp('articles') %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path, class: cp('cv') %></li>
+          <li class="navigation-item"><%= link_to 'CONTACT', '#'%></li>
+        </ul>
+        </div>
+      </nav>
+    </div>
 
 
-  <div class="row">
-    <header class="container-fluid">
-        <%= image_tag("header.jpg") %>
-    </header>
-  </div>
+    <div class="row">
+      <header class="container-fluid">
+          <%= image_tag("header.jpg") %>
+      </header>
+    </div>
 
-  <div class="row">
-  <div id="content" class="container">
-    <%= yield %>
-  </div>
+    <div class="row">
+    <div id="content" class="container">
+      <%= yield %>
+    </div>
+    </div>
   </div>
 </html>
