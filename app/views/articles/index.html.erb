@@ -1,5 +1,5 @@
 
-<span class="col-md-3"><h1>articles</h1></span>
+<span class="col-md-3"><h1 class="title">articles</h1></span>
 
 
 <% @articles.each do |article|  %>
@@ -8,7 +8,7 @@
         <span class="col-md-8"><h2><%= article.title %></h2></span>
       </div>
 
-      <div class="skill-block col-md-10">
+      <div class="item-block col-md-10">
         <div class="skill-desc col-md-6">
           <p>
             <%= article.text.truncate_words(25) %><br>
@@ -21,7 +21,7 @@
         </div>
           <div class="col-md-3">
             <ul class="activity-list">
-              <li><h3><%= l article.created_at, :format => :simple %></h3></li>
+              <li class="item-header"><h3><%= l article.created_at, :format => :simple %></h3></li>
             </ul>
           </div>
       </div>

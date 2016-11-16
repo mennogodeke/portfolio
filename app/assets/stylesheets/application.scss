@@ -7,6 +7,7 @@
 @import "projects";
 @import "social";
 @import "status";
+@import "fonts";
 
 /* navigation */
 
@@ -15,14 +16,16 @@
   margin: 0;
   padding: 0;
   position: absolute;
-  float: left;
   z-index: 10;
 }
 
+.navigation-bar h3 {
+  display: inline-block;
+}
+
 .navigation-item {
-  display: inline;
-  font-family: 'Cubano';
-  font-size: 1.7em;
+  font-size: 1em;
+  margin-left: 10%;
 }
 
 .navigation-item a {
@@ -32,7 +35,9 @@
 
 .cp {
   background-color: #FDFF03;
+  padding-bottom: 10px;
   box-shadow: 3px 2px 4px #707070;
+  color: black;
 }
 
 
@@ -52,20 +57,9 @@ header img {
 
 /* yield */
 
-h1 {
-  font-size: 3em;
-  margin-top: 5px;
-  font-family: 'Cubano';
-  color: black;
-  background-color: #FDFF03;
-  box-shadow: 3px 2px 4px #707070;
-  padding: 5px 40px 5px 5px;
-}
-
 h2 {
   background-color: black;
   padding: 5px 40px 5px 5px;
-  font-family: Cubano;
   font-size: 2em;
   color: white;
   margin-top: 10px;
@@ -74,23 +68,9 @@ h2 {
   z-index: 10;
 }
 
-h3 {
-  font-family: 'Cubano';
-  font-size: 1.2em;
-  color: black;
-  background-color: #FDFF03;
-  padding: 3px;
-  box-shadow: 3px 2px 4px #707070;
-}
-
-h3 a {
-  color: black;
-}
-
 .title {
   font-size: 3em;
   margin-top: 5px;
-  font-family: 'Cubano';
   color: black;
   background-color: #FDFF03;
   box-shadow: 3px 2px 4px #707070;
@@ -100,7 +80,6 @@ h3 a {
 .header {
   background-color: black;
   padding: 5px 40px 5px 5px;
-  font-family: Cubano;
   font-size: 2em;
   color: white;
   margin-top: 10px;
@@ -113,12 +92,7 @@ h3 a {
   margin-top: 5px;
 }
 
-p {
-  font-family: 'Average Sans';
-}
-
 .item-link a {
-  font-family: 'Cubano';
   font-size: 1.2em;
   color: black;
   background-color: #FDFF03;
@@ -126,11 +100,18 @@ p {
   box-shadow: 3px 2px 4px #707070;
 }
 
-.item-header p {
-  font-family: 'Cubano';
-  font-size: 1.2em;
+.item-header {
+  font-size: 0.8em;
   color: black;
   background-color: #FDFF03;
   padding: 3px;
   box-shadow: 3px 2px 4px #707070;
+}
+
+.item-block {
+  background-color: #F3F3F3;
+  margin-top: 4%;
+  padding-top: 40px;
+  margin-left: 10%;
+  z-index: 5;
 }

@@ -1,11 +1,11 @@
-<span class="col-md-3"><h1>skills</h1></span>
+<span class="col-md-3"><h1 class="title">skills</h1></span>
 
 <% @skills.each do |skill|  %>
   <div class="content-item">
     <div class="title-block col-md-12">
       <span class="col-md-8"><h2><%= skill.title %></h2></span>
     </div>
-    <div class="skill-block col-md-10">
+    <div class="item-block col-md-10">
       <div class="skill-desc col-md-6">
         <p>
           <%= skill.description %>
@@ -14,7 +14,7 @@
       <% skill.activeties.each do |act| %>
         <div class="col-md-6">
         <ul class="activity-list">
-          <li><span class="activity"><%= act.name %></span></li>
+          <li class="item-header"><h3><%= act.name %></h3></li>
         </ul>
         </div>
       <% end %>

@@ -1,11 +1,11 @@
-<span class="col-md-8"><h1><%= @article.title %></h1></span>
+<span class="col-md-8"><h1 class="title"><%= @article.title %></h1></span>
 
 
 <div class="content-item">
   <div class="title-block col-md-12">
     <span class="col-md-6"><h2>Getting things done!</h2></span>
   </div>
-  <div class="skill-block col-md-10">
+  <div class="item-block col-md-10">
       <p>
         <%= @article.text %><br>
         <div class="item-link">
@@ -14,13 +14,11 @@
       </p>
   </div>
 </div>
-<row>
 
-</row>
 <div id="comments">
-  <span class="comments-title">discussion</span>
+  <span class="col-md-12"><h2 class="title">Discussion</h2></span>
 
-  <div class="comment col-md-10">
+  <div class="item-block col-md-10">
     <%= render @article.comments %>
   </div>
   <% if user_signed_in? %>

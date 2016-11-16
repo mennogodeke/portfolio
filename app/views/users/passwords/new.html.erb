@@ -1,4 +1,4 @@
-<span class="col-md-8"><h1>forgot your password?</h1></span>
+<span class="col-md-8"><h1 class="title">forgot your password?</h1></span>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -6,7 +6,7 @@
     <div class="title-block col-md-12">
       <span class="col-md-3"><h2>change</h2></span>
     </div>
-    <div class="skill-block col-md-10">
+    <div class="item-block col-md-10">
       <div class="skill-desc col-md-6">
         <div class="field">
           <%= f.label :email %><br />

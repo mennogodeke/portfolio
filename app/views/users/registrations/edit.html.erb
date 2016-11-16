@@ -1,11 +1,4 @@
-<div class="heading">
-  <div class="page-title col-md-12">
-    <span class="title">Edit <%= resource_name.to_s.humanize %></span>
-  </div>
-</div>
-
-
-
+<span class="col-md-3"><h1 class="title">Edit</h1></span>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -14,7 +7,7 @@
       <div class="title-block col-md-12">
         <span class="header">credentials</span>
       </div>
-      <div class="skill-block col-md-10">
+      <div class="item-block col-md-10">
         <div class="skill-desc col-md-6">
           <p>
           <div class="field">

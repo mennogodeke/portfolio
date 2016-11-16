@@ -1,4 +1,4 @@
-<span class="col-md-3"><h1>work</h1></span>
+<span class="col-md-3"><h1 class="title">work</h1></span>
 
 <% @projects.each do |project|  %>
     <div class="content-item">
@@ -7,7 +7,7 @@
         <span class="col-md-8"><h2><%= project.title %></span></h2>
       </div>
 
-      <div class="skill-block col-md-10">
+      <div class="item-block col-md-10">
         <div class="skill-desc col-md-6">
           <p>
             <%= project.description.truncate_words(50) %><br>
