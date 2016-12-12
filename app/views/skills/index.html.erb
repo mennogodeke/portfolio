@@ -1,25 +1,16 @@
 <h1>skills</h1>
 
 <% @skills.each do |skill|  %>
-  <div class="content-item">
-    <div class="title-block col-md-12">
-      <span class="col-md-8"><h2><%= skill.title %></h2></span>
-    </div>
-    <div class="item-block col-md-10">
-      <div class="skill-desc col-md-6">
-        <p>
-          <%= skill.description %>
-        </p>
-      </div>
+  <h2><%= skill.title %></h2>
+    <p>
+      <%= skill.description %>
       <% skill.activeties.each do |act| %>
-        <div class="col-md-6">
-        <ul class="activity-list">
-          <li class="item-header"><h3><%= act.name %></h3></li>
+        <ul>
+          <li><%= act.name %></li>
         </ul>
-        </div>
-      <% end %>
-    </div>
-  </div>
+    <% end %>
+    </p>
+    <%= link_to 'Show', skill_path(skill) %>
 <% end %>
 
 
