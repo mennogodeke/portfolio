@@ -7,44 +7,63 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="navigation container">
-        <div class="col-md-12">
-        <ul class="navigation-bar">
-          <h3><li class="navigation-item <%= 'cp' if params[:controller] == 'welcome' %>"><%= link_to 'HOME', root_path %></li></h3>
-          <h3><li class="navigation-item <%= 'cp' if params[:controller] == 'skills' %>"><%= link_to 'SKILLS', skills_path %></li></h3>
-          <h3><li class="navigation-item <%= 'cp' if params[:controller] == 'projects' %>"><%= link_to 'WORK', projects_path %></li></h3>
-          <h3><li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path %></li></h3>
-          <h3><li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path %></li></h3>
-          <h3><li class="navigation-item <%= 'cp' if params[:controller] == 'contact' %>"><%= link_to 'CONTACT', contact_path %></li></h3>
-          <li class="social">
-            <ul class="social-links">
-              <% if user_signed_in? %>
-                <li class="social-icon"><%= link_to image_tag('logouticon.png', size: "26x26"), destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure you want to log out?"} %></li>
-                <li class="social-icon"><%= link_to image_tag('usericon.png', size: "26x26"), edit_user_registration_path %></li>
-              <% else %>
-                <li class="social-icon"><%= link_to image_tag('usericon.png', size: "26x26"), new_user_session_path %></li>
-              <% end %>
-              <li class="social-icon"><%= link_to image_tag('linkedinlogo.png', size: "26x26"), 'https://www.linkedin.com/in/menno-godeke-b5b09b10a', :target => "_blank" %></li>
-              <li class="social-icon"><%= link_to image_tag('githubicon.png', size: "26x26"), 'https://github.com/mennogodeke', :target => "_blank" %></li>
-            </ul>
-          </li>
+
+
+  <body>
+
+  <% unless flash.empty? %>
+      <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+        toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+      </script>
+  <% end %>
+
+
+  <nav class="navbar navbar-self container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'welcome' %>"><%= link_to 'HOME', root_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'skills' %>"><%= link_to 'SKILLS', skills_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'projects' %>"><%= link_to 'WORK', projects_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'articles' %>"><%= link_to 'ARTICLES', articles_path %></li>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'cv' %>"><%= link_to 'CV', cv_path %></li></>
+          <li class="navigation-item <%= 'cp' if params[:controller] == 'contact' %>"><%= link_to 'CONTACT', contact_path %></li>
         </ul>
-        </div>
-      </nav>
-    </div>
+      </div><!-- /.navbar-collapse -->
 
-    <div class="row">
-      <header class="container-fluid">
-          <%= image_tag("header.jpg") %>
-      </header>
-    </div>
+  </nav>
 
-    <div class="row">
-    <div id="content" class="container">
-      <%= yield %>
-    </div>
-    </div>
+  <ul class="social-links">
+    <% if user_signed_in? %>
+      <li><%= link_to image_tag('logouticon.png', size: "26x26"), destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure you want to log out?"} %></li>
+      <li><%= link_to image_tag('usericon.png', size: "26x26"), edit_user_registration_path %></li>
+    <% else %>
+      <li><%= link_to image_tag('usericon.png', size: "26x26"), new_user_session_path %></li>
+    <% end %>
+      <li><%= link_to image_tag('linkedinlogo.png', size: "26x26"), 'https://www.linkedin.com/in/menno-godeke-b5b09b10a', :target => "_blank" %></li>
+      <li><%= link_to image_tag('githubicon.png', size: "26x26"), 'https://github.com/mennogodeke', :target => "_blank" %></li>
+  </ul>
+
+  <div id="header-image" class="container-fluid">
+    <%= image_tag("header.jpg", class: 'img-responsive') %>
   </div>
+
+  <div class="container" id="content">
+  <%= yield %>
+  </div>
+  </body>
+
 </html>
