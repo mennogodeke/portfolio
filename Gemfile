@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'cancancan'
 gem 'toastr-rails'
+gem 'pygments.rb', '~> 1.0'
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,9 +1,13 @@
 <h1><%= @article.title %></h1>
 
-<p>
-  <%= @article.text %>
-</p>
+
+<%= markdown @article.text %>
+
 <%= link_to 'Back', articles_path %>
+
+<% if can? :manage, :all %>
+    <%= link_to 'edit', edit_article_path(@article) %>
+<% end %>
 
 
 <h2>Comments</h2>
